@@ -12,6 +12,7 @@ int main() {
     printf("1 - Torre\n");
     printf("2 - Bispo\n");
     printf("3 - Rainha\n");
+    printf("4 - Cavalo\n");
 
     printf("Escolha: ");
     scanf("%d", &escolha);
@@ -41,6 +42,19 @@ int main() {
                 printf("Esquerda\n");
                 i++;
             } while(i<=8);
+            break;
+
+        case 4:
+            i=1;
+            printf("Você escolheu o Cavalo, ele andará duas casas para baixo e uma para esquerda:\n");  
+            while (i<=1){
+                for (int j=1; j<=2; j++) {
+                    printf("Baixo\n");
+                }
+
+                printf("Esqueda\n");
+                i++;
+            }
             break;
         
         default:
