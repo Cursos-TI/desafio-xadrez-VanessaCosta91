@@ -2,6 +2,71 @@
 
 // Programa Jogo de Xadrez Simples
 
+// Função que move Torre
+void moverTorre (int casas) {
+    if(casas>0) {
+        printf("Direita\n");
+        moverTorre(casas-1);   
+    }
+}
+
+// Função que move Bispo
+void moverBispo (int casas) {
+
+    if (casas == 0) {
+        return;
+        }
+
+    for(int i=1; i<=1; i++) { 
+        printf("Cima ");
+        for(int j=1; j<=1; j++){
+            printf("Direita\n");
+        }        
+
+    moverBispo(casas-1);   
+    }
+}
+
+// Função que move Bispo
+void moverRainha (int casas) {
+    if(casas>0) {
+        printf("Esquerda\n");
+        moverRainha(casas-1);   
+    }
+}
+
+// Função que move Bispo
+void moverCavalo(int casas) {
+
+    int passoVertical = 2;
+    int passoHorizontal = 1;
+
+    
+    for (int fase = 1; fase <= 2; fase++) {
+
+        
+        if (fase == 1) {
+
+            for (int i = 1; i <= passoVertical; i++) {
+                printf("Cima\n");
+            }
+
+            continue; 
+        }
+
+        
+        if (fase == 2) {
+
+            for (int j = 1; j <= passoHorizontal; j++) {
+                printf("Direita\n");
+            }
+
+            break; 
+        }
+    }
+}
+
+
 int main() {
     //Variáveis
     int escolha, i;
@@ -17,45 +82,29 @@ int main() {
     printf("Escolha: ");
     scanf("%d", &escolha);
 
+    
     // Lógica do jogo
     switch (escolha) {
         case 1:
             printf("Você escolheu a Torre, ela andará cinco casas para direira:\n");
-            for (i=1; i<=5; i++) {
-                printf("Direita\n");
-            }
+            moverTorre(5);
         break;
 
         case 2:
             i =1;
             printf("Você escolheu o Bispo, ele andará cinco casas para diagonal direira:\n");
-            while (i<=5) {
-                printf("Cima Direita\n");
-                i++;
-            }
+            moverBispo(5);
             break;
 
         case 3:
-            i = 1;
             printf("Você escolheu a Rainha, ela andará oito casas para esqueda:\n");                  
-            do {                
-                printf("Esquerda\n");
-                i++;
-            } while(i<=8);
+            moverRainha(8);
             break;
 
         case 4:
-            i=1;
-            printf("Você escolheu o Cavalo, ele andará duas casas para baixo e uma para esquerda:\n");  
-            while (i<=1){
-                for (int j=1; j<=2; j++) {
-                    printf("Baixo\n");
-                }
-
-                printf("Esqueda\n");
-                i++;
-            }
-            break;
+            printf("Você escolheu o Cavalo, ele andará duas casas para cima e uma para direita:\n");  
+            moverCavalo(1);
+         break;
         
         default:
             printf("Opção Inválida.\n");
